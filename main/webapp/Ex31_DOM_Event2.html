@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+        #add-btn{
+            padding: 5px 10px;
+            border: 0;
+            background: #f80; color: white;
+            border-radius: 5px;
+        }
+        ul{ 
+            padding: 0; 
+            list-style-position: inside;
+        }
+        li{
+            border-bottom: 1px solid #999;
+            padding: 5px 0;
+        }
+        .active{ background: #abc; } /* step3: 목록 클릭 스타일 */
+    </style>
+</head>
+<body>
+<h1 id='title'>할일 목록</h1>
+    <button id="add-btn">목록 추가</button>
+    <ul id='list'>
+        <li>제목 1</li>
+        <li>제목 2</li>
+        <li>제목 3</li>
+        <li>제목 4</li>
+    </ul>
+</body>
+<script type="text/javascript">
+	let title = document.getElementById("title");
+	let list = document.getElementById("list");
+	let li = document.getElementsByName("li"); //array
+	let addbtn = document.getElementById("add-btn");
+	
+	function activeItem(event){
+		console.log(event.target);
+		//내가 이벤트를 발생시킨곳
+		console.log(event.currentTarget);
+		//currentTarget은 이벤트를가지고있는 모두임
+		
+		if(event.target.nodeName == "LI"){//내부적으로 대문자로 관리하기때문
+			title.innerHTML = event.target.innerText;
+		}
+	}
+	list.addEventListener("click", activeItem);
+	
+	//목록추가
+	addbtn.addEventListener("click", function(e) {
+		let txt = prompt('제목입력');
+		if(txt != null){
+			list.innerHTML += '<li>'+txt+'</li>';
+		}
+	})
+</script>
+</html>
