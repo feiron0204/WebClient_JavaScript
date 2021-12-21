@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="Ex32.jsp" id="frm">
+		<fieldset>
+			<legend>주소록</legend>
+			<textarea rows="10" cols="30" name="txt" id="txt"></textarea>
+			<input type="submit" id="sub" value="전송하기">
+		</fieldset>
+	</form>
+
+</body>
+<script type="text/javascript">
+	let add = ["아무개", "email:kglim@naver.com"];
+	let frm = document.getElementById("frm");
+	
+	function addr_Search(event){
+		console.log(event.type);
+		
+		let textarea = frm.txt;
+		textarea.value="이름.주소";
+		textarea.value+=add[0]+","+add[1];
+	}
+	
+	//이거 안써도 알아서 submit하면 날라가는데....
+	frm.addEventListener('submit', function(event) {
+		// 기본이벤트(알아서날라감)가있고 개발자가설정(지금 요기 리스너부분)한 이벤트도 있게되는겨
+		// 기본이벤트버리고 내가 설정한것만 처리해!
+		event.preventDefault();
+		addr_Search(event)
+	});
+</script>
+</html>
