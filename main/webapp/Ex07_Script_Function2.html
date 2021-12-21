@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	let myTime = window.setInterval(function() {
+		let d = new Date();
+		let t = d.toLocaleTimeString();
+		document.getElementById("time").innerHTML=t;
+	}, 1000); 
+	
+	//이제 시간을 멈추고싶다!!
+	//myTime === setInterval(시간정보)
+	function myTimeStop(){
+		window.clearInterval(myTime);
+		//이러면 셋 인터벌자체를 멈춰버림
+	}
+	
+</script>
+</head>
+<body>
+	<p id="time"></p>
+	<button onclick="myTimeStop()">Stop Time</button>
+</body>
+</html>

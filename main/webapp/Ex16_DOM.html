@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	찾기가능
+	Finding HTML Elements
+	Method									Description
+	document.getElementById(id)				Find an element by element id
+	document.getElementsByTagName(name)		Find elements by tag name
+	document.getElementsByClassName(name)	Find elements by class name
+	
+	값바꾸기가능
+	Changing HTML Elements
+	Property									Description
+	element.innerHTML =  new html content		Change the inner HTML of an element
+	element.attribute = new value				Change the attribute value of an HTML element
+	element.style.property = new style			Change the style of an HTML element
+	Method										Description
+	element.setAttribute(attribute, value)		Change the attribute value of an HTML element
+	
+	값없애기가능
+	Adding and Deleting Elements
+	Method										Description
+	document.createElement(element)				Create an HTML element
+	document.removeChild(element)				Remove an HTML element
+	document.appendChild(element)				Add an HTML element
+	document.replaceChild(new, old)				Replace an HTML element
+	document.write(text)						Write into the HTML output stream
+	
+	이벤트 인라인으로 할필요없음
+	Adding Events Handlers
+	Method													Description
+	document.getElementById(id).onclick = function(){code}	Adding event handler code to an onclick event
+	*/
+</script>
+</head>
+<body>
+	<div id="demo">첫번째</div>
+	<div id="demo">두번쨰(계층트리에서 같은 id=demo는 의미가없다.)</div>
+</body>
+<script type="text/javascript">
+	let ele_div=document.getElementById("demo");
+	console.log(ele_div);
+	ele_div.innerHTML="<b>Hello world</b>"
+</script>
+</html>

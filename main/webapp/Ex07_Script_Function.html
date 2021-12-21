@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	let myTime = window.setInterval(function() {
+		let d = new Date();//java Date d = new Date();
+		//Date는 객체로 써야됨 생성안해둠
+		let t = d.toLocaleTimeString();
+		document.getElementById("time").innerHTML=t;
+	}, 1000); 
+	// 이거 어차피 여기서만쓸 함수라서 익명함수로만듬
+	// 재사용성이없음
+	
+	// callback 함수 : 프로그램 논리(흐름)에 의해서 자동으로 호출되는 함수 
+	//  ex) 1초마다 재호출 >> 재 호출
+</script>
+</head>
+<body>
+	<p id="time"></p>
+	<button onclick="">Stop Time</button>
+</body>
+</html>

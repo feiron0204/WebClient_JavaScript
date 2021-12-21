@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function(){
+		//<input type ... onclick=""> 이거 연습용이라했음 개발에서 쓰면안됨
+		let btnobj = document.getElementById("btngetdata");
+		btnobj.onclick = function(){//객체.이벤트 = 익명함수(){} //동적으로 이벤트 처리하기
+			let txtmsg = document.getElementById("dtngetdata");
+			console.log(txtmsg.value);
+		}
+		
+		document.getElementById("btncreate").onclick = function(){
+			let txtname = document.createElement("input");
+			txtname.setAttribute("type","text");
+			//<input type="text" 까지만듬
+			txtname.setAttribute("id","txtbox");
+			txtname.setAttribute("value","홍길동");
+			
+			document.body.appendChild(txtname);
+			//body 맨아래에 붙음
+			
+		}
+	}
+</script>
+</head>
+<body>
+	<input type="text" id="txtmessage" value="hello">
+	<input type="button" value="getinfo" id="btngetdata">
+	<hr>
+	<input type="button" value="동적생성" id="btncreate">
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+		java의경우
+		public void print(){}
+		public String print(){return ""}
+		public int print(int num, int num2){return num+num2;}
+		
+		
+		javascript는 접근제한자없음 리턴타입없음
+		
+	 */
+	function callConfirm() { //사용자 정의함수
+		if (window.confirm("정말 삭제할까요?")) { // confirm 함수(내장함수) return true or false [확인누르면 트루 아니면 풜스]
+			alert("삭제");
+		} else {
+			alert("취소");
+		}
+	}
+
+	function showPopup() {
+		window.open("Ex06_popup.html", "zipcode", "width=200,height=200");// 새창 띄우기
+		//window.open(URL, name, specs...) 근데 이게 브라우저마다 다름...이것도 내장함수임
+
+	}
+
+	function myFunc() {
+		let mywindow = window.open("Ex06_popup.html", "zipcode",
+				"wideth=200, height=200");
+		//mywindow 변수가 가지는 내용은새창에 저장됨
+		mywindow.document.write("<p>this is zipcode window</p>");
+
+	}
+
+	//java : public void goUrlTime(String url){}
+	function goUrlTime(url) { // jajvascriopt paramehter
+		window.setTimeout("location.href='" + url + "'", 3000);
+		//www.naver.com>location.href='www.navermcom'
+	}
+
+	//java : public int myFunc2(int i, int j , int k){return i+j+k}
+	function myFunc2(i, j, k) {
+		return i+j+k;
+	}
+	
+	let result = myFunc2(10,20,30);
+	console.log("result : "+result);
+	
+	// function 함수의 이름(){}
+	
+	let changeColor=function(){ //changeColor 함수의 주소
+		window.document.bgColor="silver";
+		window.document.fgColor="red";
+	}
+	
+</script>
+</head>
+<body>
+	<h3>내장함수 , 사용자 정의 함수 사용</h3>
+	<button onclick="callConfirm()">클릭 사건 발생</button>
+	<br>
+	<button onclick="showPopup()">팝업창</button>
+	<br>
+	<button onclick="myFunc()">팝업해제</button>
+	<br>
+	<button onclick="goUrlTime('http://www.daum.net')">3초후 이동</button>
+	<br>
+	<button onclick="changeColor()">이름없는함수</button>
+	<br>
+
+</body>
+</html>

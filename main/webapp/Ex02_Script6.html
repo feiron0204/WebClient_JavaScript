@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//javascript 해석> 웹 브라우저(해석+다양한 객체 제공)
+	//저 다양한 객체를 내장 객체라고함(기본적으로 가지고있어서리) >> window객체 같은거
+	//new 하지 않고 사용하는 객체 (이미 생성 되어있는 객체)
+	//new 사용해서 쓰는 객체 Date
+	
+	//이거 body 에 띄워달라 라는뜻
+	 window.document.write("자바의 print 동일<br>"); 
+	
+	// window 생략
+	document.write("자바의 print 동일<br>");
+	
+	// 개발자 (필수)
+	console.log("디버깅, 결과 미리보기, 오류메세지 확인");
+	console.log(100+100);
+	
+	document.write("<b>hello world</b>");
+	document.write('<table border="1"');
+	document.write('<tr><td>aa</td><td>bb</td></tr>');
+	document.write('</table>');
+	
+	// var, let, const
+	var num; // 타입이 정해지지 않았습니다( 정수, 문자, 날짜 이런 타입들 다있는데 아직 모른다는뜼)
+	console.log(num); //undefined
+	num = 100; //타입설정
+	console.log("num : "+num);
+	console.log(typeof(num));
+	
+	/* 
+	//javascript, html 순서대로 ... 라인단위 실행된다.
+	//나 body 안에 from 중에서 첫번째꺼 가져와줭
+	//에서 form 안에 여러 태그들 있을테니까 (특히 인풋) 그중 첫번째꺼 가져와줭
+	// 그걸(요소값)을 var 변수에 넣어줘
+	// 그리고 찍어볼꺼임
+	var ele=window.document.forms[0].elements[0];
+	console.log(ele);
+	//이거안됨 아직 body 해석 안되어있음 
+	*/
+	
+	function formdata() {
+		var ele=window.document.forms[0].elements[0];
+		console.log(ele);
+		
+		//함수는 호출 시점에 실행되므로 앞에둬도 에러안남
+	}
+</script>
+</head>
+<body>
+	<form action="#" method="get" name="myform">
+		<input type="text" name="userid" value="hong"><br>
+		<input type="password" name="pwd" value="1004"><br>
+		<input type="submit" value="전송"><br>
+	</form>
+	
+	<input type="button" value="클릭해봐" onclick="formdata()">
+</body>
+<script type="text/javascript">
+	//일반적으로는 헤더에쓰지만 나중에 해석되길원하면 뒤에다씀
+	//form 이 생성된 시점에 실행이되어야 객체가 있음을 알 수 있따.
+	var ele=window.document.forms[0].elements[0];
+	console.log(ele);
+</script>
+</html>

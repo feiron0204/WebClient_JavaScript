@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+		javascript 다양한 내장 객체 : new를  통해서 ....이미 new 되어있어서 그냥 사용가능
+		ex) Date(), Array() 제공
+	*/
+	let today = new Date();
+	document.write(today + "<br>");
+	document.write(today.getFullYear() + "<br>");
+	document.write((today.getMonth()+1) + "<br>");
+	document.write(today.getDate() + "<br>");
+	document.write(today.getHours() + "<br>");
+	document.write(today.getMinutes() + "<br>");
+	document.write(today.getSeconds() + "<br>");
+	
+	//java : Math.random() >> static함수
+	document.write(Math.random()+"<br>"); //0<= 범위 <1
+	document.write(parseInt(Math.random()*45)+1+"<br>");// 1~45까지 뽑기
+	
+	document.write(Math.round(3.5678)+"<br>");//반올림
+	document.write(Math.max(3,8,99,55,10)+"<br>");//최대값
+	
+	//POINT 문자열 관련 함수
+	let str = "ABCDEF";
+	
+	//document.write() 계속쓰기 귀찬넹...할때쓰는 with()
+	with(document){
+		write(str+"<br>");
+		write(str.length+"<br>");
+		write(str.charAt(2)+"<br>");
+		write(str.indexOf("D")+"<br>");
+		write(str.concat("홍길동")+"<br>");
+	
+	
+	let str2 = str.replace("E","zzzzzzzzzz");
+	
+		write(str2+"<br>");
+		
+		//"ABCDEF"
+		write(str.substring(2,4)+"<br>");// CD\
+		write(str.substring(1,1)+"<br>");//(B부터 A까지 뽑으라고? 뭐라는겨)\
+		write(str.substring(1,2)+"<br>");//B
+		write(str.substring(1)+"<br>"); //BCDEF
+		
+		let strarr = "A B C D";
+		let arr=strarr.split(" "); //return Array
+		write(arr);//Object 가지고있는 toString()을 Array 재정의...그래서 주소말고 깔끔한 값이나옴 A,B,C,D 요롷게
+	
+		//TODAY POINT
+		//java : 개선된 for문
+		//java : for(String s : arr){ s }
+		
+		//MS(c#) >> in
+		//Javascript >> in
+		//for(let s in arr){}
+		write("<br>");
+		for(let index in arr){ //arr >>[A][B][C][D] >> 0,1,2,3을 줌..
+			write(index+"<br>");
+			write(arr[index]+"<br>");
+		}
+		for(let element of arr){//arr >>[A][B][C][D] >> A, B, C, D를 줌
+			write(element+"<br>");
+		}
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

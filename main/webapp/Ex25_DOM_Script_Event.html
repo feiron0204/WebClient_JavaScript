@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<button id="mybtn">클릭</button>
+<p id="demo"></p>
+</body>
+<script type="text/javascript">
+		//1. 하나의 요소에 여러개의 event를 추가할 수 있다.
+		//2. 이벤트가 더 이상 필요없다면 removeEventListener 통해서 제거가능
+		
+		document.getElementById("mybtn").addEventListener("click", displayDate);
+		
+		//document.getElementById("mybtn").addEventListener(type, function(e) {
+			// 함수내 e => 이벤트 객체
+			// capture => 전송방식
+		//}, capture)
+		
+		function displayDate(){
+			document.getElementById("demo").innerHTML = "hello world";
+		}
+</script>
+</html>

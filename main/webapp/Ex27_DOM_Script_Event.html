@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function(){
+   
+		let myphotos = ["images/1.jpg","images/2.jpg","images/3.jpg","images/4.jpg"]
+		//이벤트 onclick 사용
+		//[0][1][2][3] 이미지 경로가 있음
+		//다음클릭 >> 2.jpg >> 다음클릭 >>3.jpg >> 4 >>1 >>순환시키기
+		let nowIndex=0;
+		document.getElementById("next").onclick=function(){
+			nowIndex=(nowIndex+1)%4;
+			document.getElementById("imgs").setAttribute("src", myphotos[nowIndex]);
+		}
+		document.getElementById("prv").onclick=function(){
+			nowIndex=(nowIndex+3)%4;
+			document.getElementById("imgs").setAttribute("src", myphotos[nowIndex]);
+		}
+	}
+</script>
+</head>
+<body>
+    <h3>DOM 슬라이드</h3>
+	<img alt="이미지" src="images/1.jpg" id="imgs" width="200" height="200">
+	<hr>
+	<a href="#" id="prv">이전</a>||<a href="#" id="next">다음</a>
+</body>
+</html>

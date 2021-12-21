@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.democlass{color:red;}
+</style>
+</head>
+<body>
+	<div id="div">
+		<h1 class="democlass">Hello world_1</h1>
+		<h1 class="democlass">Hello world_2</h1>
+		<h1 class="democlass">Hello world_3</h1>
+	</div>
+</body>
+<script type="text/javascript">
+	//document.getElementsByTagName("h1")[0].removeAttribute("class");
+	/* let arr=document.getElementsByTagName("h1");
+	arr[0].removeAttribute("class"); */
+	//문제가 ......
+	let arr=document.getElementsByTagName("h1");
+	for(let index in arr){
+		//console.log(arr[index]);//잘나오나 확인코드
+		document.getElementById("div").removeChild(arr[index]);
+		//0 지우고 1 지우고 2지워라
+		
+		//[0][1][2]
+		//[world_1][world_2][world_3] -> 0번지우라네 
+		
+		//지웠떠니 뒤에애들이 쳐들어옴
+		
+		//[1->0][2->1]
+		//[world_2][world_3] -> 1번지우라네 지울께
+		
+		//[0]
+		//[world_2] 만남음
+		
+		
+	}
+</script>
+</html>

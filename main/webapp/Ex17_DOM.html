@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/* 
+		onload 이벤트가 발생하는 시점 : body 안에 있는 모든 요소가 브라우져에 DOM 형태로 loading되고 난 후에
+		
+		function call(){	} 함수가 있으면
+		
+		1. <body onload="call()">
+		2. window.onload = call();
+		
+		call 함수를 page loading할때 한번쓰고 안쓰고싶은데 어캄?
+		
+		함수이름필요한가? -> 필요없음 
+				>> 익명함수 : 일회성 함수 >> 재사용불가\
+	*/
+	window.onload = function(){
+		let out="";
+		out+="<ul>";
+			out+="<li>script</li>";
+			out+="<li>jquery</li>";
+			out+="<li>vue</li>";
+		out+="</ul>";
+		
+		document.body.innerHTML=out;
+		// DOM > 동적 > 기존에 없던 것을 추가, 삭제, 변경
+		let header = document.createElement("h1");
+		//<h1></h1> 자동생성
+		let textnode = document.createTextNode("대한민국");
+		//hello
+		
+		header.appendChild(testnode);
+		//<h1>대한민국</h1>
+		
+		document.body.appendChile(header);
+		//바디 뒤에다 붙혀!!
+		}
+		
+				
+</script>
+</head>
+<body>
+	HELLO WORLD
+</body>
+</html>

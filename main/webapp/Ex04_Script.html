@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript 문법</title>
+<script type="text/javascript">
+	/*
+		변수생성 >> 값입력 >> 타입설정
+		var a;
+		let b;
+		정의되지 않았다
+		a=10; // 이때 a는 number 타입이되고
+		b="A";// 이때 b는 String 타입이된다.
+		
+		ES5 시절-> 모든 변수는 var타입만을 썼음
+		          근데 너무 포괄적이라서 문제가생김 (지역 전역 둘다일때 이지랄)
+		2015 ES6(ECMA) -> 지역변수 let, 상수 const 를 도입
+		
+		따라서 현재 : var, let, const
+		권장사항 : let, const 만써주면 감사...
+		
+		초기화 : 어떤 변수가 처음 값을 가지는것 그 시점에서 타입이 결정된다( javascript의 경우)
+		javascript 타입종류 - Number, boolean, Array, Object .....등등
+		
+		중요한건
+		변수의 scope(살아있는기간?)
+		기준은 현재 page 기준 (지금은 Ex04_Script.html 이되는거임)
+		1. page 전체에서 사용하고 싶다?(함수 내부 포함)
+			>> 전역변수의 의미로 쓰면됨(global 변수)
+		2. page 안에 함수 안에서만 쓰고싶으면?
+			>> 지역변수(local 변수)
+		
+	 */
+	let num; // 함수안에 안들어가있네?? 너 전역 (이페이지 어디서든 쓸수있음 함수포함)
+	function call() {
+		let name; // 함수안에 들어가있네?? 너 지역 (함수사라지면 사라짐)
+		name = "홍길동";
+
+		num = 100;// 전역이라 가능
+	}
+
+	let n;
+	console.log(n); // 에러가아니라 정의되지 않았다고 알려줌( undefined )
+	n = 100;
+	console.log("n: " + n);
+
+	//변수는 초기화하고좀쓰자
+	let i, j;
+	i = 200;
+	j = 300;
+
+	let result = i + j;
+	console.log(result);
+
+	// 데이터타입얼마나있는지봐볼까나
+	let intnum = 100;
+	let dnum = 12.456;
+	let flag = true;
+	let str = null;
+	let str2 = "ABC"
+
+	console.log(typeof (intnum));
+	console.log(typeof (dnum));
+	console.log(typeof (flag));
+	console.log(typeof (str));
+	console.log(typeof (str2));
+
+	//연산자
+	//산술, 논리, 관계
+	//산술(+, -, *, /, %)
+	let num1 = 10;
+	let num2 = 3;
+	document.write(num / num2 + "<br>");
+	document.write(num % num2 + "<br>");
+
+	//관계(==)(===) 3개면 타입까지 같아야됨
+	let a = 3;
+	let b = 5;
+	document.write((a == b) + "<br>");
+	document.write((a != b) + "<br>");
+	document.write((a > b) + "<br>");
+
+	//논리연산 (&& and , || or)
+	document.write((10 > 5) && (1 != 3) + "<br>");
+	document.write((10 < 5) || (1 != 3) + "<br>");
+	// 진리	and	or
+	//0 0	0	0
+	//1	0	0	1
+	//0	1	0	1
+	//1 1	1	1
+
+	//삼항 연산자
+	//let result2 = (조건) ? (true일때):(false일때) 
+	let result2 = (4 % 2 == 0) ? "짝수" : "홀수";
+	document.write("result2: " + result2);
+
+	//대입 연산자(+= ,-= , *= , /=)
+	let p = 10;
+	let k = 5;
+	//p=p+k;
+	p += k;
+	document.write("결과: " + p + "<br>");
+
+	let x = 5 + 5;
+	let y = "5" + 5;//"55" 문자열( +산술, 결합)
+	let z = "Hello" + 5; //Hello5
+
+	let v = "5"; //문자형숫자
+	let v2 = 5;
+	let v3 = 5;
+	document.write((v == v2) + "<br>"); // == 값비교
+	document.write((v === v2) + "<br>");// === 값도같고 타입도 같아야함
+	document.write((v2 === v3) + "<br>");
+</script>
+</head>
+<body>
+
+</body>
+</html>

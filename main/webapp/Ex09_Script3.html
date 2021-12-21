@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/*
+  함수 (문자열 , 숫자, 날짜)
+ */
+ let str ="10+20+30";
+ document.write(str+"<br>");
+ 	// 1. eval()
+ 	// 문자형 수식을 계산식으로 "10+20+30" >> 10+20+30 으로 계산
+ 	// "10+20+30A" 당연히 에러
+ 	
+ 	document.write(eval(str)+"<br>");
+ 	
+ 	//2. isNaN() >> Not a Number >>너 숫자 아니지! (이쉑들 부정형으로 물어봄)
+ 	// 응 >> 숫자가아님
+ 	// 아니 >> 숫자임
+ 	document.write(isNaN("12345")+"<br>"); //f
+ 	document.write(isNaN("12345A")+"<br>");//t
+ 	document.write(isNaN("대한민국")+"<br>"); //t
+ 	document.write(isNaN('12345')+"<br>"); //f
+ 	
+ 	//문자열 함수
+ 	//https://www.w3schools.com/js/js_string_methods.asp
+ 	//숫자 함수
+ 	//https://www.w3schools.com/js/js_number_methods.asp
+ 	
+ 	//오라클 : + (산술), || (결합 연산자)
+ 	let i = "100";
+ 	let j = "200";
+ 	document.write("결합 : "+(i+j)+"<br>");// 산술, 결합(+)
+ 	document.write("숫자 변환 : "+(Number(i)+Number(j))+"<br>");// 강제형변환 같은거
+ 	
+ 	//Number()
+ 	//parseInt()
+ 	//parseFloat()
+ 	//더 확실한 형변환을 말해주기위해
+ 	
+ 	//**event**
+	/*
+	Event	Description
+	onchange	An HTML element has been changed
+	onclick	The user clicks an HTML element
+	onmouseover	The user moves the mouse over an HTML element
+	onmouseout	The user moves the mouse away from an HTML element
+	onkeydown	The user pushes a keyboard key
+	onload	The browser has finished loading the page
+	onload
+	>>index.html >> body 안에 태그를 가지고 있다
+	>> body 안에 있는 모든 요소가 메모리(웹 브라우저)에 로딩 되고 난 후에
+	
+	onblur() >> 포커스가 요소를 떠날때
+	onfocus() >> 포커스가 요소에 들어올때
+	
+	*/
+	
+	function bodyload() {
+		console.log("load");
+		// 모든 요소는 메모리에 있어요 그럼 가지고 놀죠...
+		// *****body 안에 있는 모든 요소를 가지고 놀아요*****
+		let data = document.myform.money.value;
+		//myform 안의 money라는애의 값을 data에 저장
+		console.log(isNaN(data));
+	}
+	
+	function focusFunc(){
+		//DOM
+		document.getElementById("myinput").style.background="gold";
+	}
+	function blurFunc(){
+		//DOM
+		document.getElementById("myinput").style.background="white";
+	}
+</script>
+</head>
+<body onload="bodyload()">
+	<form action="#" name="myform">
+		<input type="text" id="myinput" name="myinput" onfocus="focusFunc()" onblur="blurFunc()">
+		<br>
+		<select name="sel">
+			<option value="A">AA</option>
+			<option value="B">BB</option>
+			<option value="C">CC</option>
+			<option value="D">DD</option>
+		</select>
+		<br>
+		<input type="text">
+		<br>
+		<input type="text">
+		<br>
+		<input type="text" value="1000" name="money">
+		<br>
+	</form>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	유효성 검증
+	검증위치는?
+	클라이언트 or 서버
+	
+	1. 사이트 접속(bit.or.kr) > 로그인 버튼 클릭 > 로그인 화면
+	
+	client >> id, pwd 데이터를 입력합니다 
+	두개가 다 중요정보이기 때문에 둘다
+	>> 서버로 전송 >> 서버가 값을 받음 >> 검증(DB) >> client에게 응답
+	
+	
+	2. 사이트 접속(bit.or.kr) > 회원가입 버튼 클릭 > 회원가입 화면
+	
+	client >> id, pwd, name, hobby, email 데이터를 입력합니다
+	모두가 중요정보는 아님
+	name, hobby 의 유효성같은건 client가 할수있으니 최대한으로 브라우저에게 맡긴다
+	=> 자바 스크립트가 해줌
+	
+	*/
+	function send(){
+		//유효성검증하고 문제없으면 보내~
+		
+		//태그정보를 읽어와야하는데 
+		//var name = document.forms[0].Elements[0].value(x)  이런거안씀
+		
+		//자바스크립트 방식
+		let userid = document.loginform.txtuserid;
+		console.log(userid);
+		console.log(userid.value);
+		// 이것도 좀 별로긴함
+		
+		//결과 : DOM 스크립트씀 미리 있는 객체들이있음
+		// 식별자를 알고있으면(id) 바로 얻어오기 가능
+		let pwd = document.getElementById("txtpwd");
+		console.log(pwd);
+		console.log(pwd.value);
+		
+		
+	}
+</script>
+</head>
+<body>
+	<form action="" method="get" name="loginform">
+		ID: 	<input type="text" name="txtuserid"><br>
+		PWD: 	<input type="text" name="txtpwd" id="txtpwd"><br>
+				<input type="button" value="전송확인" onclick="send()">
+	</form>
+
+</body>
+</html>
