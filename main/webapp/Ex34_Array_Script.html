@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//javascript > array > java의 Collection과 같다
+	
+	let array = ['포도','사과'];
+	document.write(array.toString()+"<br>"); //재정의가 되있으면 형태가이쁠것
+	document.write(array+" default toString()<br>");//사실toString()안써도 자동으로 tostring 불러올것
+	
+	for(let i = 0; i< array.length ; i++){
+		document.write(array[i]+"<br>");
+	}
+	
+	document.write("<br>");
+	for(let index in array){
+		document.write(array[index]+"<br>");
+	}
+	///////////////////////////여기까지가 기본 필수사항///////////////////////////////
+	//let array = ['포도','사과'];
+	array[2]="바나나";//뜬금없는 추가
+	document.write(array.toString()+"-"+array.length+"<br>");
+	
+	array[10]="애플망고";//더뜬금없는추가
+	document.write(array.toString()+"-"+array.length+"<br>");//근데 권장하는방법은아님
+	
+	array[9]="배";//공간있으니 초기화가능
+	document.write(array[9]+"-"+array.length+"<br>");
+	
+	let array2 = ["one","two","three"];
+	
+	array2.length = 2; //강제로 칸지정해버리면 버림 이 역시 권장하지 않음
+	document.write(array2.toString()+"-"+array2.length+"<br>");
+	
+	array2.length = 4; //늘리기도 가능 권장안함...
+	document.write(array2.toString()+"-"+array2.length+"<br>");
+	
+	//권장하는방법은?
+	//Array > 자료구조는 stack 이니 > last in first out(LIFO) > push(),pop() 쓰십쇼
+	array2.push("fff");//맨뒤에 붙혀주십셔
+	document.write(array2.toString()+"-"+array2.length+"<br>");
+	
+	//끄집어낼때
+	document.write(array2.pop()+"<br>");
+	document.write(array2.pop()+"<br>");
+	document.write(array2.pop()+"<br>");
+	document.write(array2.pop()+"<br>");
+	document.write(array2.pop()+"<br>");//이다음부터는 방이없음...
+	document.write(array2.pop()+"<br>");
+	document.write(array2.pop()+"<br>");
+	document.write(array2.pop()+"<br>");
+	document.write(array2.pop()+"<br>");
+	
+	//good
+	let list =[];
+	list.push("A");
+	list.push("B");
+	document.write("<br> "+list.pop());
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

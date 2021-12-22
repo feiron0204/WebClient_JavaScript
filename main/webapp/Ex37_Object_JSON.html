@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	let Myobj = {"name":"john",age:30,city:"seoul"};
+	console.log(Myobj);
+	//중요함수 2가지
+	
+	//[객체 데이터] >> 문자열로 바꾸기
+	//login.jsp?name=john&age=30&city=seoul
+	let stringstr = JSON.stringify(Myobj);
+	console.log(stringstr);
+	console.log(typeof(stringstr));
+	
+	//문자열(형식 json) >>[객체]
+	let Myobj2 = '{"name":"john","age":"30","city":"seoul"}'; //내부가 다 문자열로 묶여있어야 ("") 바꿔줄수있음
+	
+	console.log(typeof(Myobj2));
+	let Myjson = JSON.parse(Myobj2); //POINT
+	console.log(Myjson);
+	
+	//객체로 바꿧으니 속성으로 값뺄수있음
+	console.log(Myjson.name); //객체.속성명
+	console.log(Myjson["name"]);
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//1. 배열 >> []			>> let arr = []; 	push(),pop() 이게 좋은방법
+	//2. json객체 >> {}		>> let obj={};		obj.속성명 , obj.함수명 으로 접근가능
+	
+	//우리가 원하는 데이터는 단순하지 않다
+	//객체가 객체를 가지거나, 객체안에 배열, 배열안에 객체 ...혼재	>> 해석 후 원하는데이터를 뽑을수 있으면됨
+	
+	
+	
+	let students=[];
+	students.push({이름: "홍길동",국어: 80, 영어:60});//[0] >> 객체가 들어감
+	students.push({이름: "아무개",국어: 100, 영어:50});
+	students.push({이름: "이순신",국어: 10, 영어:100});
+	//[{},{},{}]
+	
+	for(let index in students){
+		//students[index] 이러면 객체가나오는데 여기에 함수를 줄수있음
+		students[index].getSum = function(){return this.국어 + this.영어};
+		students[index].getAvg = function(){return this.getSum()/2};
+	}
+	
+	console.log(students);
+	
+	for(let index in students){
+		console.log(students[index].이름);
+		console.log(students[index].getSum());
+		console.log(students[index].getAvg());
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>
