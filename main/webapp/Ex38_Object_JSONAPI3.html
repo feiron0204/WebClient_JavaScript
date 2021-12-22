@@ -233,19 +233,49 @@
 		   }
 	        ]
 	}
-	console.log(data);
+	/* console.log(data);
 	//이미지 경로 출력
 	console.log(data.items);
 	for(let index in data.items){
 		console.log(data.items[index].media.m);
 		document.write("<img src='"+data.items[index].media.m+"'><br>");
-	}
+	} */
 	
 	//문제 ; 27번 소스를 가져다가 라쿤이미지 슬라이드를 만드세요
 	
+	window.onload = function(){
+    
+		let myphotos = [];
+		////////////////////////////
+		let itemlist = data.items;
+		for(let index in itemlist){
+			let media = itemlist[index].media;
+			myphotos.push(media.m);//이미지경로
+		}
+		document.getElementById("imgs").src = myphotos[0];
+		////////////////////////////
+		
+		let index=0;
+		console.log("index: "+ index);
+		document.getElementById("prv").onclick=function(){
+			if(index == 0){
+				index = myphotos.length;
+			}
+			document.getElementById("imgs").src = myphotos[--index];
+		}
+		document.getElementById("next").onclick=function(){
+			if(++index == myphotos.length){
+				index =0;
+			}
+			document.getElementById("imgs").src=myphotos[index];
+		}
+	}
 </script>
 </head>
 <body>
-
+<h3>DOM 슬라이드</h3>
+	<img alt="이미지" src="https://live.staticflickr.com/65535/51763377539_290b307900_m.jpg" id="imgs" width="200" height="200">
+	<hr>
+	<a href="#" id="prv">이전</a>||<a href="#" id="next">다음</a>
 </body>
 </html>
