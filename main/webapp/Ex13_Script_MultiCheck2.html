@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-	let checkflag = "false";// global 변수 -> 이페이지에 있는 모든 함수가 사용가능
+	let checkflag = "a";// global 변수 -> 이페이지에 있는 모든 함수가 사용가능
 	
 	function checkForm(){
 		let list = document.myform.list;
@@ -12,19 +12,19 @@
 		console.log(list[0]); 
 		console.log(list.length); */
 		
-		if(checkflag == "false"){// ==가능
+		if(checkflag == "a"){// ==가능
 			for(let index in list){
 				console.log(list[index]);
 				list[index].checked=true;//체크드 설정을 허락하겠노라
 			}
-			checkflag="true";
+			checkflag="b";
 			return "[선택해제하기]";
 		}else{
 			for(let index in list){
 				console.log(list[index]);
 				list[index].checked=false;//체크드 설정을 불허하겠노라
 			}
-			checkflag="false";
+			checkflag="a";
 			return "[전체선택]";
 		}
 		

@@ -19,16 +19,16 @@
 		//console.log(frm.productor.options[frm.productor.selectedIndex].value);
 		//console.log(frm.productor.options[frm.productor.selectedIndex].text);
 		
-		let index = frm.productor.selectedIndex;
-		let text = frm.productor.options[index].text;
-		let value = frm.productor.options[index].value;
+		let i = frm.productor.selectedIndex;
+		let txt = frm.productor.options[i].text;
+		let val = frm.productor.options[i].value;
 		
 		if(index == 0){
 			frm.valProductor.value="";
 			frm.txtProductor.value="";
 		}else{
-			frm.valProductor.value=value;
-			frm.txtProductor.value=text;
+			frm.valProductor.value=val;
+			frm.txtProductor.value=txt;
 		}
 	}
 </script>

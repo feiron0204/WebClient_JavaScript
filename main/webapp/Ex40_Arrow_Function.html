@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p id="demo"></p>
+	<p id="demo2"></p>
+</body>
+<script type="text/javascript">
+	//일반함수
+	//function foo(){}
+	
+	//익명함수
+	let foo =function(){
+		console.log('foo');
+	}
+	foo();
+	
+	//ES6 (함수의 줄임 표현)
+	//매개변수가 없는 경우(parameter)
+	//야 어차피 펑션안써도되고 어차피 실행블록있을꺼아녀
+	//let bar = function(){console.log("bar");}
+	
+	let bar = () => console.log("bar");
+	bar();
+	
+	//매개변수가 1개
+	//let foo2 = function(x){return x}
+	let foo2 = x => x;
+	//let foo2 = x=>x+10; 이건 +10해서 리턴해달라는뜻
+	
+	let hello;
+	//hello = (val) => "hello" + val;
+	hello = val => "hello" + val;
+	console.log(hello('aaaa'));
+	
+	//매개변수가 2개 이상인 경우
+	//let foo3 = (a,b) =>{return a+b};
+	let foo3 = (a,b) => a+b;
+	let v2 = foo3(10,20);
+	
+	let foo4 = (a,b) => {let c = 100; return a+b+c};
+	let v3 = foo4(200,300);
+	console.log(v3);
+	
+	//객체 ....는 괄호중괄호해야함..
+	let foo5 = ()=> ({a:1 , b:2, c:3})
+	let v4 = foo5();
+	consol.log(v3);
+	
+	//즉시 실행 함수
+	//괄호보면 무조껀실행하는 습성을 이용
+	(
+			function(){
+				console.log("즉시실행함수");
+			}()//이괄호 중요함
+			);
+	
+	//즉시 실행 함수 (화살표 표현)
+	(
+			()=>
+				{console.log("즉시실행함수");}
+	)();
+	
+	//암기하면좋음..?
+	//Array
+	/*
+	1. for(let i =0; i<10;i++){}
+	2. for(let index in Array){Array[index]}
+	3. 객체가 있따면...{a:1, b:2, c:3}
+		for(let key in Object){Object[key]}
+	+ 추가적으로 스테틱함수들
+	4. Array.isArray() //너 배열이니?
+	**5. Array.forEach(function(){})
+	**6. Array.map()
+	*/
+	//1.
+	function myFunc(){
+		let fruits =["A" , "B" , "C" , "D"];
+		let x = document.getElementById("demo2");
+		x.innerHTML=Array.isArray(fruits); // true, false
+	}
+	myFunc();
+	//2.
+	let txt="";
+	let numbers = [45,4,9,16,25];
+	number.forEach(function(value, i, numbers) {//이게 함수 배열의 개수만큼 호출
+		
+	});
+	
+	//원래용법
+	/*
+	function myFun2(value, index, array){
+		txt = "("+value+")"+"["+index+"]"+"["+array+"]";
+		console.log(txt)
+	}
+	numbers.forEach(myFunc2);
+	재사용성없는앤데 이름까지붙혀줘? 에라이 낭디바 당비
+	*/
+	number.forEach(function(value,index,array) {//나만쓸꺼니까 메소드이름업어도되!
+		txt = "("+value+")"+"["+index+"]"+"["+array+"]";
+	});
+	
+	//6.
+	// Array.map(function(){}) 당신이 가지고있는 배열...복제할께요....살짝 편집해서? 얜 리턴타입이 array임
+	//let numbers = [45,4,9,16,25];
+	let numbermap = numbers.map(myFunc3);
+	//numbermap=[90,8,18,32,50] 이 들어가게됨
+	function myFunc3(value,index,array){//콜백함수
+		return value*2;
+	}
+	console.log(numbermap);
+	//for문돌릴필요없음
+	
+	/////////////////////////////////////////////////////////////////////////////
+	let evens = [2,4,6,8];
+	let odds = evens.map(val=>val+1); //function(val){return val+1} 이라는뜻
+	console.log(odds);
+	//결과[3,5,7,9]
+	
+	let nums = evens.map((value,index)=>value+index);
+	console.log(nums);
+	//결과[2,5,8,11]
+	
+	let arr = [];
+	evens.forEach(value=>{
+		if(value %2===0){
+			arr.push(value);
+		}
+	});
+	//불편....그래서 위에껄 더 많이씀
+	console.log(arr);
+</script>
+</html>

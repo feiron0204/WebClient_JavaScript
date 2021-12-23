@@ -8,15 +8,15 @@
 	
 	function checkForm(){
 		let list = document.myform.list;
-		/* console.log(list);
-		console.log(list[0]); */
-		console.log(list.length);
+		 /* console.log(list);
+		console.log(list[0]);  */
+		 console.log(list.length);
 		for(let index in list){
 			console.log(list[index]);
 			list[index].checked=true;//체크드 설정을 허락하겠노라
 		}
 		checkflag="true";
-		return "[선택해제하기]";
+		return "[선택해제하기]"; 
 	}
 </script>
 </head>
@@ -28,7 +28,7 @@
 		<input type="checkbox" name="list" value=" html">HTML<br>
 		<input type="checkbox" name="list" value=" css">CSS<br> 
 		<input type="checkbox" name="list" value=" script">SCRIPT<br> 
-		<input type="button" value="[전체선택] " onclick="this.value = checkForm()"><br> 
+		<input type="button" value="[전체선택] " onclick="this.value=checkForm()"><br> 
 		<input type="button" value="[전체선택] " onclick="this.value = checkForm2(this.form.list)"><br>
 	</form>
 </body>
