@@ -1,50 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-	<style type="text/css">
-		table{width: 100%}
-		table,tr,th,td {border: 1px solid; border-collapse: collapse;}
-		td{background-color: gold; text-align: center;}
-	</style>
-	<script type="text/javascript">
-		window.onload = function(){
-			//동적 테이블 버튼을 클릭하면 .. 행 입력값, 열 입력값 을 통해서 동적으로 테이블 생성
-			//div 태그 뒤에 붙이세요	
-			document.getElementById("b1").onclick=function(){
-				let tele=document.createElement("table");
-				let rele=document.createElement("tr");
-				let cele=document.createElement("td");
-				let textnode = document.createTextNode("hello world");
-				for(let i=0;i<parseInt(document.getElementById("txtcolumn").value);i++){
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+table {
+	width: 100%
+}
+
+table, tr, th, td {
+	border: 1px solid;
+	border-collapse: collapse;
+}
+
+td {
+	background-color: gold;
+	text-align: center;
+}
+</style>
+<script type="text/javascript">
+	window.onload = function() {
+		//동적 테이블 버튼을 클릭하면 .. 행 입력값, 열 입력값 을 통해서 동적으로 테이블 생성
+		//div 태그 뒤에 붙이세요	
+		document.getElementById("b1").onclick = function() {
+			let tele = document.createElement("table");
+			
+			for (let i = 0; i < parseInt(document.getElementById("txtcolumn").value); i++) {
+				console.log("col");
+				let rele = document.createElement("tr");
+
+				for (let i = 0; i < parseInt(document.getElementById("txtrow").value); i++) {
+					let cele = document.createElement("td");
+					let textnode = document.createTextNode("hello world");
+					cele.appendChild(textnode);
 					rele.appendChild(cele);
-					console.log("col");
-				}
-				for(let i=0;i<parseInt(document.getElementById("txtrow").value);i++){
-					tele.appendChild(rele);
 					console.log("row");
 				}
-				document.body.appendChild(tele);
-			}
-			//동적테이블 제거를 클릭하면 만들어지 테이블을 삭제하세요 
-			document.getElementById("b2").onclick=function(){
-				let arr=document.getElementsByTagName("table");
-					//console.log(arr[index]);//잘나오나 확인코드
-					document.getElementById("div").removeChild(arr[arr.length-1]);
-					
 				
+				tele.appendChild(rele);
 			}
+			
+			document.body.appendChild(tele);
 		}
-	
-	</script>
+		//동적테이블 제거를 클릭하면 만들어지 테이블을 삭제하세요 
+		document.getElementById("b2").onclick = function() {
+			let arr = document.getElementsByTagName("table");
+			//console.log(arr[index]);//잘나오나 확인코드
+			document.getElementById("body").removeChild(arr[arr.length - 1]);
+
+		}
+	}
+</script>
 </head>
 <body>
 	<div id="div">
 		행의수 : <input type="text" id="txtrow" name="txtrow" value="2"><br>
 		열의수 : <input type="text" id="txtcolumn" name="txtcolumn" value="2"><br>
-		<input type="button" id="b1"  value="동적테이블 생성" >
-		<input type="button" id="b2"  value="동적테이블 제거" >
+		<input type="button" id="b1" value="동적테이블 생성"> <input
+			type="button" id="b2" value="동적테이블 제거">
 	</div>
+	
+
+
+</table>
 </body>
 </html>
